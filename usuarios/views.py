@@ -10,12 +10,6 @@ def cadastro(request):
         email = request.POST['email']
         senha = request.POST['password']
         senha2 = request.POST['password2']
-        if campo_vazio(nome):
-            messages.error(request,'O campo nome não pode ficar em branco')
-            return redirect('cadastro')
-        if campo_vazio(email):
-            messages.error(request,'O campo email não pode ficar em branco')
-            return redirect('cadastro')
         if senhas_nao_sao_iguais(senha, senha2):
             messages.error(request, 'As senhas não são iguais')
             return redirect('cadastro')
@@ -30,7 +24,7 @@ def cadastro(request):
         messages.success(request, 'Cadastro realizado com sucesso')
         return redirect('login')
     else:
-        return render(request,'usuarios/cadastro.html')
+        return render(request,'cadastro.html')
 
 def login(request):
     """Realiza o login de uma pessoa no sistema"""
@@ -47,22 +41,28 @@ def login(request):
             if user is not None:
                 auth.login(request, user)
                 print('Login realizado com sucesso')
-                return redirect('dashboard')
-    return render(request, 'usuarios/login.html')
+                return redirect('minhas-vagas')
+            else:
+                messages.error(request,'Senha incorreta')
+                return redirect('login')
+        else:
+            messages.error(request,'E-mail incorreto')
+            return redirect('login')
+    return render(request, 'login.html')
 
 def logout(request):
     auth.logout(request)
     return redirect('index')
 
-def dashboard(request):
+def minhas_vagas(request):
     if request.user.is_authenticated:
         id = request.user.id
-        receitas = Receita.objects.order_by('-date_receita').filter(pessoa=id)
+        vagas = Vaga.objects.order_by('-data_criacao').filter(empresa=id)
         
         dados = { 
-            'receitas' : receitas
+            'vagas' : vagas
         }
-        return render(request, 'usuarios/dashboard.html', dados)
+        return render(request, 'minhas-vagas.html', dados)
     else:
         return redirect('index')
 

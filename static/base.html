@@ -14,21 +14,24 @@
           </button>
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+              {% if user.is_authenticated %}
               <li class="nav-item">
-                <a class="nav-link" href="#">Cadastro</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'criar-vaga' %}">Criar vaga</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link" href="#">Login</a>
-              </li>
-              {% comment %} <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Criar vaga</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'minhas-vagas' %}">Minhas vagas</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Minhas vagas</a>
+                <a class="nav-link active" aria-current="page" href="{% url 'logout' %}">Logout</a>
+              </li> 
+              {% else %}
+              <li class="nav-item">
+                <a class="nav-link" href="{% url 'cadastro' %}">Cadastro</a>
               </li>
               <li class="nav-item">
-                <a class="nav-link active" aria-current="page" href="#">Logout</a>
-              </li> {% endcomment %}              
+                <a class="nav-link" href="{% url 'login' %}">Login</a>
+              </li>
+              {% endif %}              
             </ul>
             <form class="d-flex">
               <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search">
