@@ -16,7 +16,7 @@
     <p>{{vaga.beneficios}}</p>
     {% if user.is_authenticated and request.user == vaga.empresa %}
         <a href="{% url 'editar-vaga' vaga.id  %}"><button type="button" class="btn btn-primary">Editar vaga</button></a>
-        <a href=""><button type="button" class="btn btn-secondary">Deletar vaga</button></a>
+        <a href="{% url 'deletar-vaga' vaga.id  %}"><button type="button" class="btn btn-secondary">Deletar vaga</button></a>
     {% endif %}
 </div>
 

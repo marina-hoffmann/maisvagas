@@ -29,8 +29,10 @@ def criar_vaga(request):
     else:
         return render(request, 'criar-vaga.html')
 
-def deletar_vaga(request):
-    pass
+def deletar_vaga(request, vaga_id):
+    vaga = get_object_or_404(Vaga, pk=vaga_id)
+    vaga.delete()
+    return redirect('minhas-vagas')
 
 def editar_vaga(request, vaga_id):    
     vaga = Vaga.objects.filter(id=vaga_id).first()
