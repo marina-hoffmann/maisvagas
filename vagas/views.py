@@ -29,6 +29,19 @@ def criar_vaga(request):
     else:
         return render(request, 'criar-vaga.html')
 
+def buscar_vaga(request):
+    lista_vagas = Vaga.objects.order_by('-data_criacao').filter(publicada=True)
+
+    if 'buscar-vaga' in request.GET:
+        nome_a_buscar = request.GET['buscar-vaga']
+        lista_vagas = lista_vagas.filter(titulo__icontains=nome_a_buscar)
+
+    dados = {
+        'vagas' : lista_vagas
+    }
+
+    return render(request, 'buscar-vaga.html', dados)
+
 def deletar_vaga(request, vaga_id):
     vaga = get_object_or_404(Vaga, pk=vaga_id)
     vaga.delete()
