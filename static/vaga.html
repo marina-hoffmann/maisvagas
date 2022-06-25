@@ -1,0 +1,23 @@
+{% include 'base.html' %}
+
+{% block conteudo  %}
+
+<div class="container" style="margin-top: 3rem">
+    <h2>{{vaga.titulo}}</h2>
+    <h2>{{vaga.empresa}}</h2>
+    <h5>Local: {{vaga.local}}</h5>
+    <span class="badge text-bg-primary" style="background-color: rgb(52, 122, 253); font-size: 15px">{{vaga.categoria}}</span>
+    <span class="badge text-bg-primary" style="background-color: rgb(52, 122, 253); font-size: 15px">{{vaga.senioridade}}</span>
+    <h3>Descrição da vaga</h3>
+    <p>{{vaga.descricao}}</p>
+    <h3>Requisitos</h3>
+    <p>{{vaga.requisitos}}</p>
+    <h3>Benefícios</h3>
+    <p>{{vaga.beneficios}}</p>
+    {% if user.is_authenticated and request.user == vaga.empresa %}
+        <a href="{% url 'editar-vaga' vaga.id  %}"><button type="button" class="btn btn-primary">Editar vaga</button></a>
+        <a href=""><button type="button" class="btn btn-secondary">Deletar vaga</button></a>
+    {% endif %}
+</div>
+
+{% endblock  %}

@@ -1,0 +1,59 @@
+{% include 'base.html' %}
+
+{% block conteudo  %}
+<form action="{% url 'editar-vaga' vaga.id  %}" method="post">
+  {% csrf_token %}
+    <div class="container mt-4">
+      <h1>Alterando vaga </h1>
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Título da vaga</label>
+        <input type="name" name="titulo" class="form-control" id="exampleFormControlInput1" value="{{vaga.titulo}}">
+      </div>
+  
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Empresa</label>
+        <input type="name" name="empresa" class="form-control" id="exampleFormControlInput1" value="{{vaga.empresa}}" placeholder="Informe o nome da empresa">
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Local</label>
+        <input type="name" name="local" class="form-control" id="exampleFormControlInput1" placeholder="Informe o local da vaga" value="{{vaga.local}}">
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Descrição da vaga</label>
+        <input type="text" name="descricao" class="form-control" id="exampleFormControlInput1" placeholder="Digite a descrição da vaga" value="{{vaga.descricao}}">
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Requisitos da vaga</label>
+        <input type="text" name="requisitos" class="form-control" id="exampleFormControlInput1" placeholder="Digite os requitos da vaga" value="{{vaga.requisitos}}">
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Benefícios da vaga</label>
+        <input type="text" name="beneficios" class="form-control" id="exampleFormControlInput1" placeholder="Digite os beneficios da vaga" value="{{vaga.beneficios}}">
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Categoria da vaga</label>
+        <input type="name" name="categoria" class="form-control" id="exampleFormControlInput1" placeholder="Digite a categoria da vaga" value="{{vaga.categoria}}">
+      </div>
+
+      <div class="mb-3">
+        <label for="exampleFormControlInput1" class="form-label">Senioridade da vaga</label>
+        <input type="name" name="senioridade" class="form-control" id="exampleFormControlInput1" placeholder="Digite a senioridades da vaga" value="{{vaga.senioridade}}">
+      </div>
+
+      <div class="form-check">
+        <input class="form-check-input" type="checkbox" name="publicada" id="flexCheckDefault">
+        <label class="form-check-label" for="flexCheckDefault">
+          Publicada
+        </label>
+      </div>
+  
+      <a href="editar-vaga"><button type="submit" class="btn btn-primary">Atualizar</button></a>
+    </div>
+  </form>
+  
+{% endblock  %}

@@ -2,16 +2,12 @@
 
 {% block conteudo  %}
 <form action="criar-vaga" method="post">
+  {% csrf_token %}
     <div class="container mt-4">
       <h1>Nova vaga </h1>
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Título da vaga</label>
         <input type="name" name="titulo" class="form-control" id="exampleFormControlInput1" placeholder="Digite o título da vaga">
-      </div>
-  
-      <div class="mb-3">
-        <label for="exampleFormControlInput1" class="form-label">Empresa</label>
-        <input type="name" name="empresa" class="form-control" id="exampleFormControlInput1" placeholder="Informe o nome da empresa">
       </div>
 
       <div class="mb-3">

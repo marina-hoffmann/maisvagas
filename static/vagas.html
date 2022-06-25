@@ -2,6 +2,7 @@
 {% load static%}
 
 {% block conteudo  %}
+{% include 'partials/_alertas.html' %}
 
     <h1 style="text-align: center">Vagas</h1>
     <section class="best-receipe-area" style="margin-top: 3rem" >
@@ -13,7 +14,7 @@
                     <div class="mb-30" >
                         <div class="card border-primary mb-3" >
                             <div class="card-body" style="height: 20rem" >
-                                <h5 class="card-title">{{vaga.titulo}}</h5>
+                                <a href="{% url 'vaga' vaga.id %}"><h5 class="card-title">{{vaga.titulo}}</h5></a>
                                 <p class="card-text">Categoria: {{vaga.categoria}} | Senioridade: {{vaga.senioridade}}</p>
                                 <p class="card-text">{{vaga.local}}</p>
                                 <p class="card-text">{{vaga.descricao|truncatewords:40}}</p>

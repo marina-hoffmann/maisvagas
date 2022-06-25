@@ -31,7 +31,10 @@
                             <p class="card-text">{{vaga.descricao|truncatewords:40}}</p>
                         </div>
                     </div>
+                    <a href="{% url 'editar-vaga' vaga.id %}" type="button" class="btn btn-info">Editar</a>
+                    <a href="" type="button" class="btn btn-danger">Deletar</a>
                 </div>
+
             </div>
             {% endfor %}
         </div>
