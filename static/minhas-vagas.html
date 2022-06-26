@@ -3,12 +3,12 @@
 
 {% block conteudo  %}
 
-<div class="contact-area section-padding-0">
+<div class="contact-area section-padding-0" style="margin-top: 1rem;">
     <div class="container">
         <div class="row">
             <div class="col-12">
                 <div class="section-heading">
-                    <h3>Olá {{ user.username }}</h3>
+                    <h3>Olá {{ user.username }}!</h3>
                 </div>
             </div>
         </div>
@@ -25,7 +25,7 @@
                 <div class="mb-30" >
                     <div class="card border-primary mb-3" >
                         <div class="card-body" style="height: 20rem" >
-                            <a href="{% url 'vaga' vaga.id %}"><h5 class="card-title">{{vaga.titulo}}</h5></a>
+                            <a href="{% url 'vaga' vaga.id %}" style="text-decoration: none;"><h5 class="card-title">{{vaga.titulo}}</h5></a>
                             <span class="badge text-bg-primary" style="background-color: rgb(52, 122, 253); font-size: 12px">{{vaga.categoria}}</span>
                             <span class="badge text-bg-primary" style="background-color: rgb(52, 122, 253); font-size: 12px">{{vaga.senioridade}}</span>
                             {% if vaga.publicada %}
@@ -33,7 +33,7 @@
                             {% else %}
                             <span class="badge text-bg-danger" style="background-color: rgb(248, 81, 39); font-size: 12px">Não publicada</span>
                             {% endif %}
-                            <p class="card-text">Local: {{vaga.local}}</p>
+                            <p class="card-text">{{vaga.local}}</p>
                             <p class="card-text">{{vaga.descricao|truncatewords:40}}</p>
                         </div>
                     </div>

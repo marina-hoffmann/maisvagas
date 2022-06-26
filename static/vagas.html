@@ -4,7 +4,7 @@
 {% block conteudo  %}
 {% include 'partials/_alertas.html' %}
 
-    <h1 style="text-align: center">Vagas</h1>
+    <h1 style="text-align: center; margin-top: 2rem;">Vagas</h1>
     <section class="best-receipe-area" style="margin-top: 3rem" >
         <div class="container">
             <div class="row" >
@@ -12,13 +12,15 @@
                 <!-- Area de publicação das vagas -->
                 <div class="col-12 col-sm-6 col-lg-4" >
                     <div class="mb-30" >
-                        <div class="card border-primary mb-3" style="border-width: 2px ;" >
+                        <div class="card border-primary mb-3" style="border-width: 1px;" >
                             <div class="card-body" style="height: 20rem;"  >
-                                <a href="{% url 'vaga' vaga.id %}"><h5 class="card-title">{{vaga.titulo}}</h5></a>
+                                <a href="{% url 'vaga' vaga.id %}" style="text-decoration: none;"><h5 class="card-title">{{vaga.titulo}}</h5></a>
+                                <p class="card-subtitle" style="font-weight: bold;">{{vaga.empresa}}</p>
+                                <p class="card-subtitle">{{vaga.local}}</p>
                                 <span class="badge text-bg-primary" style="background-color: rgb(52, 122, 253); font-size: 12px">{{vaga.categoria}}</span>
                                 <span class="badge text-bg-primary" style="background-color: rgb(52, 122, 253); font-size: 12px">{{vaga.senioridade}}</span>
-                                <p class="card-text">Local: {{vaga.local}}</p>
-                                <p class="card-text">{{vaga.descricao|truncatewords:40}}</p>
+                                
+                                <p class="card-text" style="margin-top: 1rem;">{{vaga.descricao|truncatewords:40}}</p>
                             </div>
                         </div>
                     </div>
