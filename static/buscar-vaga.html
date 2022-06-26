@@ -16,7 +16,8 @@
                         <div class="card border-primary mb-3" >
                             <div class="card-body" style="height: 20rem" >
                                 <a href="{% url 'vaga' vaga.id %}"><h5 class="card-title">{{vaga.titulo}}</h5></a>
-                                <p class="card-text">Categoria: {{vaga.categoria}} | Senioridade: {{vaga.senioridade}}</p>
+                                <span class="badge text-bg-primary" style="background-color: rgb(52, 122, 253); font-size: 12px">{{vaga.categoria}}</span>
+                                <span class="badge text-bg-primary" style="background-color: rgb(52, 122, 253); font-size: 12px">{{vaga.senioridade}}</span>
                                 <p class="card-text">{{vaga.local}}</p>
                                 <p class="card-text">{{vaga.descricao|truncatewords:40}}</p>
                             </div>
