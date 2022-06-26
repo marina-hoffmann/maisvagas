@@ -15,7 +15,7 @@
     </div>
  </div>
 
-<h1 style="text-align: center">Vagas</h1>
+<h1 style="text-align: center">Minhas vagas</h1>
 <section class="best-receipe-area" style="margin-top: 3rem" >
     <div class="container">
         <div class="row" >
@@ -28,7 +28,12 @@
                             <a href="{% url 'vaga' vaga.id %}"><h5 class="card-title">{{vaga.titulo}}</h5></a>
                             <span class="badge text-bg-primary" style="background-color: rgb(52, 122, 253); font-size: 12px">{{vaga.categoria}}</span>
                             <span class="badge text-bg-primary" style="background-color: rgb(52, 122, 253); font-size: 12px">{{vaga.senioridade}}</span>
-                            <p class="card-text">{{vaga.local}}</p>
+                            {% if vaga.publicada %}
+                            <span class="badge text-bg-success" style="background-color: rgb(0, 180, 105); font-size: 12px">Publicada</span>
+                            {% else %}
+                            <span class="badge text-bg-danger" style="background-color: rgb(248, 81, 39); font-size: 12px">Não publicada</span>
+                            {% endif %}
+                            <p class="card-text">Local: {{vaga.local}}</p>
                             <p class="card-text">{{vaga.descricao|truncatewords:40}}</p>
                         </div>
                     </div>

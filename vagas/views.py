@@ -5,7 +5,7 @@ from django.utils.datastructures import MultiValueDictKeyError
 from django.contrib import messages
 
 def index(request):
-    vagas = Vaga.objects.all()
+    vagas = Vaga.objects.all().filter(publicada=True)
     return render(request, 'vagas.html', context={'vagas':vagas})
 
 def criar_vaga(request):

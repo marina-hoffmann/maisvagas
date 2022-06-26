@@ -22,17 +22,17 @@
 
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Descrição da vaga</label>
-        <textarea type="text" name="descricao" class="form-control input-lg" id="inputlg" placeholder="Digite a descrição da vaga" value="{{vaga.descricao}}" style="height: 250px; vertical-align: top;"></textarea>
+        <textarea type="text" name="descricao" class="form-control input-lg" id="inputlg" placeholder="Digite a descrição da vaga" style="height: 250px; vertical-align: top;">{{vaga.descricao}}</textarea>
       </div>
 
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Requisitos da vaga</label>
-        <textarea type="text" name="requisitos" class="form-control" id="exampleFormControlInput1" placeholder="Digite os requitos da vaga" value="{{vaga.requisitos}}" style="height: 250px; vertical-align: top;"></textarea>
+        <textarea type="text" name="requisitos" class="form-control" id="exampleFormControlInput1" placeholder="Digite os requitos da vaga" style="height: 250px; vertical-align: top;">{{vaga.requisitos}}</textarea>
       </div>
 
       <div class="mb-3">
         <label for="exampleFormControlInput1" class="form-label">Benefícios da vaga</label>
-        <textarea type="text" name="beneficios" class="form-control" id="exampleFormControlInput1" placeholder="Digite os beneficios da vaga" value="{{vaga.beneficios}}" style="height: 250px; vertical-align: top;"></textarea>
+        <textarea type="text" name="beneficios" class="form-control" id="exampleFormControlInput1" placeholder="Digite os beneficios da vaga" style="height: 250px; vertical-align: top;">{{vaga.beneficios}}</textarea>
       </div>
 
       <div class="mb-3">
@@ -46,7 +46,7 @@
       </div>
 
       <div class="form-check" style="padding-bottom: 20px;">
-        <input class="form-check-input" type="checkbox" name="publicada" id="flexCheckDefault">
+        <input class="form-check-input" type="checkbox" name="publicada" id="flexCheckDefault" {% if vaga.publicada %} checked {% endif %}>
         <label class="form-check-label" for="flexCheckDefault">
           Publicada
         </label>

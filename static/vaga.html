@@ -8,15 +8,17 @@
     <h5>Local: {{vaga.local}}</h5>
     <span class="badge text-bg-primary" style="background-color: rgb(52, 122, 253); font-size: 15px">{{vaga.categoria}}</span>
     <span class="badge text-bg-primary" style="background-color: rgb(52, 122, 253); font-size: 15px">{{vaga.senioridade}}</span>
-    <h3>Descrição da vaga</h3>
+    <h3 style="margin-top: 2rem;">Descrição da vaga</h3>
     <p>{{vaga.descricao}}</p>
     <h3>Requisitos</h3>
     <p>{{vaga.requisitos}}</p>
     <h3>Benefícios</h3>
     <p>{{vaga.beneficios}}</p>
     {% if user.is_authenticated and request.user == vaga.empresa %}
-        <a href="{% url 'editar-vaga' vaga.id  %}"><button type="button" class="btn btn-primary">Editar vaga</button></a>
-        <a href="{% url 'deletar-vaga' vaga.id  %}"><button type="button" class="btn btn-danger">Deletar vaga</button></a>
+        <div style="margin-top: 2rem;">
+            <a href="{% url 'editar-vaga' vaga.id  %}"><button type="button" class="btn btn-primary">Editar vaga</button></a>
+            <a href="{% url 'deletar-vaga' vaga.id  %}"><button type="button" class="btn btn-danger">Deletar vaga</button></a>
+        </div>
     {% endif %}
 </div>
 
